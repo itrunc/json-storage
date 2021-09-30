@@ -3,8 +3,9 @@ const fs2 = require('fs-extra')
 const { expect } = require('chai')
 const Mock = require('mockjs')
 const { Model } = require('../index')
+const { instance } = require('./helper')
 
-const DATAPATH = path.resolve(__dirname, '.data', 'model', Mock.mock('@word(10)'))
+const DATAPATH = path.resolve(__dirname, '.data', instance)
 fs2.ensureDir(DATAPATH)
 
 describe('Model', function() {
