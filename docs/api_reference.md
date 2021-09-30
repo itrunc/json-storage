@@ -4,6 +4,9 @@
 <dt><a href="#Model">Model</a></dt>
 <dd><p>Create / Get a model</p>
 </dd>
+<dt><a href="#Schema">Schema</a></dt>
+<dd><p>Create / Get a schema</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -20,6 +23,16 @@
 <dt><a href="#ModelSetOptions">ModelSetOptions</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#ModelFindReturns">ModelFindReturns</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SchemaConstructorOptions">SchemaConstructorOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SchemaCountOptions">SchemaCountOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SchemaHasOptions">SchemaHasOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SchemaGetOptions">SchemaGetOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SchemaDelOptions">SchemaDelOptions</a> : <code>Object</code></dt>
 <dd></dd>
 </dl>
 
@@ -215,6 +228,198 @@ Delete all objects
 ```js
 const model = new Model()model.delAll()
 ```
+<a name="Schema"></a>
+
+## Schema
+Create / Get a schema
+
+**Kind**: global class  
+
+* [Schema](#Schema)
+    * [new Schema(options)](#new_Schema_new)
+    * [.schemaCount([options])](#Schema+schemaCount) ⇒ <code>int</code>
+    * [.modelCount([options])](#Schema+modelCount) ⇒ <code>int</code>
+    * [.hasSchema(name, [options])](#Schema+hasSchema) ⇒ <code>boolean</code>
+    * [.hasModel(name, [options])](#Schema+hasModel) ⇒ <code>boolean</code>
+    * [.getSchema(name, [options])](#Schema+getSchema) ⇒ <code>object</code> \| <code>null</code>
+    * [.getModel(name, [options])](#Schema+getModel) ⇒ <code>object</code> \| <code>null</code>
+    * [.removeSchema(name, [options])](#Schema+removeSchema)
+    * [.removeModel(name, [options])](#Schema+removeModel)
+    * [.model(name, [index])](#Schema+model) ⇒ [<code>Model</code>](#Model)
+    * [.schema(name, [index])](#Schema+schema) ⇒ [<code>Schema</code>](#Schema)
+
+<a name="new_Schema_new"></a>
+
+### new Schema(options)
+Create a new schema instance
+
+
+| Param | Type |
+| --- | --- |
+| options | [<code>SchemaConstructorOptions</code>](#SchemaConstructorOptions) | 
+
+**Example**  
+```js
+const schema = new Schema({  folder: 'path/to/schema'})
+```
+<a name="Schema+schemaCount"></a>
+
+### schema.schemaCount([options]) ⇒ <code>int</code>
+Count of sub schemas
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type |
+| --- | --- |
+| [options] | [<code>SchemaCountOptions</code>](#SchemaCountOptions) | 
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.schemaCount())
+```
+<a name="Schema+modelCount"></a>
+
+### schema.modelCount([options]) ⇒ <code>int</code>
+Count of sub models
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type |
+| --- | --- |
+| [options] | [<code>SchemaCountOptions</code>](#SchemaCountOptions) | 
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.modelCount())
+```
+<a name="Schema+hasSchema"></a>
+
+### schema.hasSchema(name, [options]) ⇒ <code>boolean</code>
+Check existence of a specific sub schema
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the sub schema |
+| [options] | [<code>SchemaHasOptions</code>](#SchemaHasOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.hasSchema('test'))
+```
+<a name="Schema+hasModel"></a>
+
+### schema.hasModel(name, [options]) ⇒ <code>boolean</code>
+Check existence of a specific sub model
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the sub model |
+| [options] | [<code>SchemaHasOptions</code>](#SchemaHasOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.hasModel('test'))
+```
+<a name="Schema+getSchema"></a>
+
+### schema.getSchema(name, [options]) ⇒ <code>object</code> \| <code>null</code>
+Get meta data of the specific sub schema
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the sub schema |
+| [options] | [<code>SchemaGetOptions</code>](#SchemaGetOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.getSchema('test'))
+```
+<a name="Schema+getModel"></a>
+
+### schema.getModel(name, [options]) ⇒ <code>object</code> \| <code>null</code>
+Get meta data of the specific sub model
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the sub model |
+| [options] | [<code>SchemaGetOptions</code>](#SchemaGetOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.getModel('test'))
+```
+<a name="Schema+removeSchema"></a>
+
+### schema.removeSchema(name, [options])
+Delete a specific sub schema
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the specific sub schema |
+| [options] | [<code>SchemaDelOptions</code>](#SchemaDelOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()schema.removeSchema('test')
+```
+<a name="Schema+removeModel"></a>
+
+### schema.removeModel(name, [options])
+Delete a specific sub model
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | name of the specific sub model |
+| [options] | [<code>SchemaDelOptions</code>](#SchemaDelOptions) |  |
+
+**Example**  
+```js
+const schema = new Schema()schema.removeModel('test')
+```
+<a name="Schema+model"></a>
+
+### schema.model(name, [index]) ⇒ [<code>Model</code>](#Model)
+Create or get an instance of sub model
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | folder name of the sub model |
+| [index] | <code>object</code> | meta data of the sub model |
+
+**Example**  
+```js
+const schema = new Schema()const model = schema.model('test')
+```
+<a name="Schema+schema"></a>
+
+### schema.schema(name, [index]) ⇒ [<code>Schema</code>](#Schema)
+Create or get an instance of sub schema
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | folder name of the sub schema |
+| [index] | <code>object</code> | meta data of the sub schema |
+
+**Example**  
+```js
+const schema = new Schema()const sub = schema.schema('test')
+```
 <a name="ModelConstructorOptions"></a>
 
 ## ModelConstructorOptions : <code>Object</code>
@@ -280,4 +485,54 @@ const model = new Model()model.delAll()
 | key | <code>string</code> | ID of the object |
 | data | <code>object</code> | The data saved in JSON file |
 | options | <code>object</code> | The data saved in meta |
+
+<a name="SchemaConstructorOptions"></a>
+
+## SchemaConstructorOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [folder] | <code>string</code> | <code>&quot;&#x27;~/.data&#x27;&quot;</code> | Path of a folder in which data will be saved |
+
+<a name="SchemaCountOptions"></a>
+
+## SchemaCountOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [event] | <code>boolean</code> | <code>true</code> | Indicates whether event is triggered |
+
+<a name="SchemaHasOptions"></a>
+
+## SchemaHasOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [event] | <code>boolean</code> | <code>true</code> | Indicates whether event is triggered |
+
+<a name="SchemaGetOptions"></a>
+
+## SchemaGetOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [event] | <code>boolean</code> | <code>true</code> | Indicates whether event is triggered |
+
+<a name="SchemaDelOptions"></a>
+
+## SchemaDelOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [event] | <code>boolean</code> | <code>true</code> | Indicates whether event is triggered |
 
