@@ -24,6 +24,8 @@
 <dd></dd>
 <dt><a href="#ModelFindReturns">ModelFindReturns</a> : <code>Object</code></dt>
 <dd></dd>
+<dt><a href="#PaginateOptions">PaginateOptions</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#SchemaConstructorOptions">SchemaConstructorOptions</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#SchemaCountOptions">SchemaCountOptions</a> : <code>Object</code></dt>
@@ -53,7 +55,7 @@ Create / Get a model
     * [.del(key, options)](#Model+del)
     * [.set(key, value, index, options)](#Model+set)
     * [.find(comparator)](#Model+find) ⇒ [<code>ModelFindReturns</code>](#ModelFindReturns) \| <code>null</code>
-    * [.findAll(comparator)](#Model+findAll) ⇒ [<code>Array.&lt;ModelFindReturns&gt;</code>](#ModelFindReturns)
+    * [.findAll(comparator, options)](#Model+findAll) ⇒ [<code>Array.&lt;ModelFindReturns&gt;</code>](#ModelFindReturns)
     * [.mset(data, options)](#Model+mset)
     * [.delAll(options)](#Model+delAll)
 
@@ -184,7 +186,7 @@ const model = new Model()const data = model.find(item => item.id === 'key1')co
 ```
 <a name="Model+findAll"></a>
 
-### model.findAll(comparator) ⇒ [<code>Array.&lt;ModelFindReturns&gt;</code>](#ModelFindReturns)
+### model.findAll(comparator, options) ⇒ [<code>Array.&lt;ModelFindReturns&gt;</code>](#ModelFindReturns)
 Get all objects which the comparator returns true
 
 **Kind**: instance method of [<code>Model</code>](#Model)  
@@ -192,6 +194,7 @@ Get all objects which the comparator returns true
 | Param | Type |
 | --- | --- |
 | comparator | <code>function</code> | 
+| options | [<code>PaginateOptions</code>](#PaginateOptions) | 
 
 **Example**  
 ```js
@@ -485,6 +488,17 @@ const schema = new Schema()const sub = schema.schema('test')
 | key | <code>string</code> | ID of the object |
 | data | <code>object</code> | The data saved in JSON file |
 | options | <code>object</code> | The data saved in meta |
+
+<a name="PaginateOptions"></a>
+
+## PaginateOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [offset] | <code>int</code> | <code>0</code> | The first {offset} matched items are ignored |
+| [limit] | <code>int</code> | <code>0</code> | Page size, if it is 0 then no limit |
 
 <a name="SchemaConstructorOptions"></a>
 

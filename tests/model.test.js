@@ -156,22 +156,6 @@ describe('Model', function() {
         })
     })
 
-    describe('#findAll', () => {
-        it('should return all objects correctly', () => {
-            const result = model.findAll()
-            expect(result).to.be.an('array').that.to.have.lengthOf(model.count())
-        })
-        it('should return items with correct data format', () => {
-            const result = model.findAll(item => item.id === key)
-            expect(result).to.be.an('array').that.to.have.lengthOf(1)
-            expect(result[0]).to.be.an('object').that.to.have.all.keys(['key', 'data', 'options'])
-        })
-        it('should returm empty array if not found', () => {
-            const result = model.findAll(item => item.id === 'ttt')
-            expect(result).to.be.an('array').that.to.be.empty
-        })
-    })
-
     describe('#mset', () => {
         const data = Mock.mock('@sentence(10)').split(' ').reduce((acc, cur) => {
             const id = Mock.mock('@word(10)')
@@ -203,5 +187,25 @@ describe('Model', function() {
                 expect(meta.role).to.equal(data[key].value.role)
             }
         })
+    })
+
+    describe('#findAll', () => {
+        it('should return all objects correctly', () => {
+            const result = model.findAll()
+            expect(result).to.be.an('array').that.to.have.lengthOf(model.count())
+        })
+        it('should return items with correct data format', () => {
+            const result = model.findAll(item => item.id === key)
+            expect(result).to.be.an('array').that.to.have.lengthOf(1)
+            expect(result[0]).to.be.an('object').that.to.have.all.keys(['id', 'data', 'options'])
+
+            const result2 = model.findAll(item => item, { limit: 3 })
+            expect(result2).to.be.an('array').that.to.have.lengthOf(3)
+        })
+        it('should returm empty array if not found', () => {
+            const result = model.findAll(item => item.id === 'ttt')
+            expect(result).to.be.an('array').that.to.be.empty
+        })
+
     })
 })
