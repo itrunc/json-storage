@@ -30,6 +30,8 @@
 <dd></dd>
 <dt><a href="#SchemaCountOptions">SchemaCountOptions</a> : <code>Object</code></dt>
 <dd></dd>
+<dt><a href="#SchemaKeysOptions">SchemaKeysOptions</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#SchemaHasOptions">SchemaHasOptions</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#SchemaGetOptions">SchemaGetOptions</a> : <code>Object</code></dt>
@@ -242,6 +244,8 @@ Create / Get a schema
     * [new Schema(options)](#new_Schema_new)
     * [.schemaCount([options])](#Schema+schemaCount) ⇒ <code>int</code>
     * [.modelCount([options])](#Schema+modelCount) ⇒ <code>int</code>
+    * [.schemaKeys([options])](#Schema+schemaKeys) ⇒ <code>Array</code>
+    * [.modelKeys([options])](#Schema+modelKeys) ⇒ <code>Array</code>
     * [.hasSchema(name, [options])](#Schema+hasSchema) ⇒ <code>boolean</code>
     * [.hasModel(name, [options])](#Schema+hasModel) ⇒ <code>boolean</code>
     * [.getSchema(name, [options])](#Schema+getSchema) ⇒ <code>object</code> \| <code>null</code>
@@ -294,6 +298,36 @@ Count of sub models
 **Example**  
 ```js
 const schema = new Schema()console.log(schema.modelCount())
+```
+<a name="Schema+schemaKeys"></a>
+
+### schema.schemaKeys([options]) ⇒ <code>Array</code>
+All keys of sub schemas
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type |
+| --- | --- |
+| [options] | [<code>SchemaKeysOptions</code>](#SchemaKeysOptions) | 
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.schemaKeys())
+```
+<a name="Schema+modelKeys"></a>
+
+### schema.modelKeys([options]) ⇒ <code>Array</code>
+All keys of sub models
+
+**Kind**: instance method of [<code>Schema</code>](#Schema)  
+
+| Param | Type |
+| --- | --- |
+| [options] | [<code>SchemaKeysOptions</code>](#SchemaKeysOptions) | 
+
+**Example**  
+```js
+const schema = new Schema()console.log(schema.modelKeys())
 ```
 <a name="Schema+hasSchema"></a>
 
@@ -513,6 +547,16 @@ const schema = new Schema()const sub = schema.schema('test')
 <a name="SchemaCountOptions"></a>
 
 ## SchemaCountOptions : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [event] | <code>boolean</code> | <code>true</code> | Indicates whether event is triggered |
+
+<a name="SchemaKeysOptions"></a>
+
+## SchemaKeysOptions : <code>Object</code>
 **Kind**: global typedef  
 **Properties**
 
