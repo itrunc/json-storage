@@ -12,14 +12,17 @@ describe('Schema', function() {
     this.timeout(0)
     const folder = path.resolve(DATAPATH, 'schema')
     const schema = new Schema({ folder })
-    const key = Mock.mock('@word(10)')
 
     describe('#constructor', () => {
         it(`should create an instance of schema as well as the folder ${folder}`, () => {
             expect(schema).to.be.an.instanceOf(Schema)
             const folderCreated = fs2.pathExistsSync(folder)
+            const modelFolderCreated = fs2.pathExistsSync(schema.modelFolder)
+            const schemaFolderCreated = fs2.pathExistsSync(schema.schemaFolder)
             const metaCreated = fs2.pathExistsSync(schema.metaFile)
             expect(folderCreated).to.be.true
+            expect(modelFolderCreated).to.be.true
+            expect(schemaFolderCreated).to.be.true
             expect(metaCreated).to.be.true
         })
 
@@ -34,9 +37,9 @@ describe('Schema', function() {
     describe('#schema', () => {
         const name = Mock.mock('@word(10)')
         const sub = schema.schema(name)
-        it(`should create sub schema as well as the folder ${sub.folder}`, () => {
+        it(`should create sub schema as well as the folder ${sub.schemaFolder}`, () => {
             expect(sub).to.be.an.instanceOf(Schema)
-            const folderCreated = fs2.pathExistsSync(sub.folder)
+            const folderCreated = fs2.pathExistsSync(sub.schemaFolder)
             const metaCreated = fs2.pathExistsSync(sub.metaFile)
             expect(folderCreated).to.be.true
             expect(metaCreated).to.be.true
@@ -69,7 +72,7 @@ describe('Schema', function() {
         })
 
         it(`should remove both folder and meta of specific sub schema`, () => {
-            const folder = sub.folder
+            const folder = sub.schemaFolder
             const metaFile = sub.metaFile
             schema.removeSchema(name)
             const count = schema.schemaCount()
