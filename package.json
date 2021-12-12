@@ -1,11 +1,12 @@
 {
   "name": "@itrunc/json-storage",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "description": "Storage in filesystem with JSON file for NodeJS",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/**/*.test.js --reporter mochawesome --reporter-options reportDir=tests/results/general,reportFilename=report --exit",
+    "test:single": "mocha tests/index.js --reporter mochawesome --reporter-options reportDir=tests/results/single,reportFilename=report --exit",
     "docs": "jsdoc2md -c jsdoc.json lib/*.js > docs/api_reference.md",
     "pub": "npm publish --access public"
   },
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/itrunc/json-storage#readme",
   "dependencies": {
+    "async-validator": "^4.0.7",
     "debug": "^4.3.2",
     "fs-extra": "9.1.0"
   },
